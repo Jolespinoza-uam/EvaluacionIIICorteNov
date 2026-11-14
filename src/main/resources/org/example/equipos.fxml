@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" spacing="12">
+    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+    <HBox spacing="8" alignment="CENTER_LEFT">
+        <Label text="Tipo"/>
+        <ComboBox fx:id="filtroTipo" promptText="Todos" prefWidth="150"/>
+        <Label text="Estado"/>
+        <ComboBox fx:id="filtroEstado" promptText="Todos" prefWidth="175"/>
+        <Button text="Filtrar" onAction="#recargar"/>
+        <Button text="Limpiar filtros" onAction="#limpiarFiltros"/>
+    </HBox>
+    <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colCodigo" text="Código" prefWidth="125"/>
+            <TableColumn fx:id="colMarca" text="Marca" prefWidth="145"/>
+            <TableColumn fx:id="colEstado" text="Estado" prefWidth="180"/>
+            <TableColumn fx:id="colCantidad" text="Cantidad" prefWidth="95"/>
+            <TableColumn fx:id="colTipo" text="Tipo" prefWidth="180"/>
+        </columns>
+    </TableView>
+    <GridPane hgap="8" vgap="4">
+        <Label text="Código" GridPane.columnIndex="0"/>
+        <Label text="Marca" GridPane.columnIndex="1"/>
+        <Label text="Estado" GridPane.columnIndex="2"/>
+        <Label text="Cantidad" GridPane.columnIndex="3"/>
+        <Label text="Tipo" GridPane.columnIndex="4"/>
+        <TextField fx:id="codigo" prefWidth="125" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="marca" prefWidth="125" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <ComboBox fx:id="estado" prefWidth="175" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <TextField fx:id="cantidad" prefWidth="85" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+        <ComboBox fx:id="tipo" prefWidth="150" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+    </GridPane>
+    <HBox spacing="8">
+        <Button text="Nuevo" onAction="#nuevo"/>
+        <Button text="Guardar" onAction="#guardar"/>
+        <Button text="Eliminar" onAction="#eliminar" fx:id="botonEliminar"/>
+    </HBox>
+    <Label fx:id="mensaje" wrapText="true"/>
+</VBox>
